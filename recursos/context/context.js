@@ -8,6 +8,7 @@ export const ContextoCreate = createContext();
 export const Context = ({children}) =>{
     const [buscarActxFecha,setBuscarActxFecha] = useState(true);
     const [buscarActxMes,setBuscarActxMes] = useState(true);
+    const [ocultarMes,setOcultarMes] = useState(false);
     const {
         getItem,
         multiGet
@@ -62,7 +63,9 @@ export const Context = ({children}) =>{
                 setActividadesMes,
                 setBuscarActxFecha,
                 setBuscarActxMes,
-                dataPormes
+                dataPormes,
+                ocultarMes,
+                setOcultarMes
             }}
         >
             {children}

@@ -1,13 +1,10 @@
 import React,{useRef,useContext} from "react";
-import { Modal, Text, TextInput, TouchableNativeFeedback, View ,FlatList,Animated,PanResponder} from "react-native";
+import { Modal, Text, TouchableNativeFeedback, View ,Animated,PanResponder} from "react-native";
 import useDB from "../bd/useDB";
-import HoraElegida from "../componentes/HoraElegida";
 import { ContextoCreate } from "../context/context";
 import estilos from "../estilos/Estilos";
 import modal from "../estilos/Modal";
 import useAlarm from "../hooks/useAlarm";
-import useModal from "../hooks/useModal";
-import ModalReloj from "./ModalReloj";
 
 const ModalMostrarActividad = ({visibleActividad,setVisibleActividad,actividadMostrada,tareasDelDia,fechaActividad,setActividadesHoy}) => {
 

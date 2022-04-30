@@ -44,7 +44,6 @@ const ModalReloj = ({mostrarReloj,abrirCerarReloj,horasState,setHoras}) => {
 
     const deslizar = () => {
         let posicionItem = parseFloat(JSON.stringify(pan.y));
-        // console.log(posicionItem);
         if(posicionItem < -400.0){
           cerrarReloj(abrirCerarReloj,horasState,setHoras);
         }

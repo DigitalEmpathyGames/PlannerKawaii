@@ -33,15 +33,18 @@ const useAlarm = () => {
             channel: "my_channel_id",
             small_icon: "ic_launcher",
             data: { foo: "bar" },
-            has_button: true
+            has_button: true,
+            vibrate: true,
+            volume:1.0,
+            color:'#FFC6E6',
+            auto_cancel:false,
+            sound_name:'omae.mp3',
+            loop_sound:true
               
         };
 
-        console.log("firedate");
-        console.log(fireDate);
         const alarm = await ReactNativeAN.scheduleAlarm({ ...notificacion, fire_date: fireDate}).then(
             (element) => {
-                console.log("then element");
                 return element
             }
         ).catch(

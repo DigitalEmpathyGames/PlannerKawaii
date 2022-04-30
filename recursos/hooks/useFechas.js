@@ -16,17 +16,11 @@ const useFechas = () => {
 
     let semanaActual= []; 
     let fechaHoy = new Date();
-    const fechaActual = {
-      year : fechaHoy.getFullYear(),
-      month : fechaHoy.getMonth(),
-      day : fechaHoy.getDay()
-    }
     
 
     let diaHoy = fechaHoy.getDay();
     let yearNow = fechaHoy.getFullYear();
     
-
 
 
     for(let i = 0;i < 7;i++){
@@ -64,8 +58,7 @@ const useFechas = () => {
 
     const fechaAhora = () => {
       let fechaEsta = new Date();
-
-      return  fechaEsta.getFullYear() + '-' + mesNumToStr(fechaEsta.getMonth()) + '-' + diaToStrN(fechaEsta.getDate()) + 'T' + diaToStrN(fechaEsta.getHours()) + ':' + diaToStrN(fechaEsta.getMinutes()) + ':00.000Z';
+      return  fechaEsta.getUTCFullYear() + '-' + mesNumToStr(fechaEsta.getUTCMonth()) + '-' + diaToStrN(fechaEsta.getUTCDate()) + 'T' + fechaEsta.toLocaleTimeString() + '.000Z';
       // 2022-04-19T17:58:00.000Z
 
     }

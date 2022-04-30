@@ -1,5 +1,5 @@
-import React, {useContext,useState} from "react";
-import { View,FlatList } from "react-native";
+import React, {useContext,useState,useEffect} from "react";
+import { View,FlatList} from "react-native";
 import TareaPrevia from "../componentes/TareaPrevia";
 import TituloSeccion from "../componentes/TituloSeccion";
 import { ContextoCreate } from "../context/context";
@@ -8,11 +8,17 @@ import useModal from "../hooks/useModal";
 import ModalAgregarActividad from "../modals/ModalAgregarActividad";
 import ModalMostrarActividad from "../modals/ModalMostrarActividad";
 import PantallaMensual from "./PantallaMensual";
+import SplashScreen from 'react-native-splash-screen'
 
 
 
 const PantallaInicio = () => {
 
+    useEffect(
+        () => {
+            SplashScreen.hide();
+        },[]
+    );
 
     const { 
         modalVisible,
@@ -26,6 +32,7 @@ const PantallaInicio = () => {
     const {
         actividadesHoy,
         setActividadesHoy,
+        fechaString
     } = useContext(ContextoCreate);
 
     const [visibleActividad, setVisibleActividad] = useState(false);
@@ -51,8 +58,6 @@ const PantallaInicio = () => {
 
     return(
         <>  
-    
-
             <View style={estilos.contenedorPantalla}>
 
                 <ModalAgregarActividad
@@ -124,6 +129,7 @@ const PantallaInicio = () => {
                     <PantallaMensual
                         setModalVisible = {setModalVisible}
                         setFechaActividad = {setFechaActividad}
+                        fechaString = {fechaString}
                     ></PantallaMensual>
                 </View>
             </View>

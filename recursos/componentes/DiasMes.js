@@ -1,5 +1,5 @@
-import React, {useRef,useState}from "react";
-import { Text, TextInput, TouchableNativeFeedback, View} from "react-native";
+import React from "react";
+import {View} from "react-native";
 import modal from "../estilos/Modal";
 import DiarepetirMes from "./DiarepetirMes";
 

@@ -1,10 +1,12 @@
 import React ,{useRef} from "react";
-import { Modal, Text, TextInput, TouchableNativeFeedback, View ,FlatList,Animated,PanResponder} from "react-native";
+import { Modal, Text, TextInput, TouchableNativeFeedback, View ,FlatList,Animated,PanResponder,StyleSheet} from "react-native";
 import HoraElegida from "../componentes/HoraElegida";
 import estilos from "../estilos/Estilos";
 import modal from "../estilos/Modal";
 import useModal from "../hooks/useModal";
 import ModalReloj from "./ModalReloj";
+import useSvgImages from "../bd/useSvgImages";
+import { SvgCss } from 'react-native-svg';
 
 const ModalAgregarActividad = ({modalVisible,abrirCerrar,mostrarReloj,abrirCerarReloj,setActividadesHoy,fechaActividad}) => {
 
@@ -20,11 +22,13 @@ const ModalAgregarActividad = ({modalVisible,abrirCerrar,mostrarReloj,abrirCerar
         agregarActividades
     } = useModal();
 
+    const {
+        pusheen
+    } = useSvgImages();
 
-
-    const cerrarModalAgregarActividad = () =>{
+    const cerrarModalAgregarActividad = async () =>{
         abrirCerrar(false);
-        agregarActividades(fechaActividad,horasActividad,actividad,descripcion,setActividadesHoy);
+        await agregarActividades(fechaActividad,horasActividad,actividad,descripcion,setActividadesHoy);
         setMesState([]);
         setHorasActividad([]);
     }
@@ -74,12 +78,6 @@ const ModalAgregarActividad = ({modalVisible,abrirCerrar,mostrarReloj,abrirCerar
                 setHoras = {setHorasActividad}
                 horasState = {horasActividad}
             />
-
-
-
-                
-
-
             <Modal
                 animationType="fade"
                 transparent={true}
@@ -161,8 +159,20 @@ const ModalAgregarActividad = ({modalVisible,abrirCerrar,mostrarReloj,abrirCerar
 
                             </View>
                         </View>  
+
+                    <View
+                        style={{height:150,width:'100%',backgroundColor:'',position:'absolute',bottom:-75}}
+                    >
+                            <SvgCss xml={pusheen} 
+                                height="100%" width="100%"
+                            />
+                    </View>
+
                     </View>
                     
+
+
+
                 </View>
                 </Animated.View>
             </Modal>                

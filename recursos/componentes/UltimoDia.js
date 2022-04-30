@@ -1,23 +1,31 @@
-import React, {useEffect,useContext}from "react";
+import React, {useContext,useEffect}from "react";
 import { Text, View,TouchableNativeFeedback} from "react-native";
 import { ContextoCreate } from "../context/context";
 import navegador from "../estilos/Navegador";
 import useFechas from "../hooks/useFechas";
 
-const DiaMesNavegador = ({dia,setModalVisible,setFechaActividad,mesNumStr,numeroDiaHoy,mesActual,yearActual}) =>{
+const UltimoDia = ({dia,setModalVisible,setFechaActividad,mesNumStr,numeroDiaHoy,mesActual,yearActual}) =>{
+
 
     const {
         diaToStr
     } = useFechas();
-
     const {
         actividadesMes,
-        fechaString,
         setfechaString,
         setBuscarActxFecha,
         setActividadesHoy,
-        setOcultarMes
+        setOcultarMes,
+        fechaString  
     } = useContext(ContextoCreate);
+
+
+    useEffect(
+        ()=>{
+            setOcultarMes(false);
+        },
+        [fechaString]
+    );
 
     let backgroundColorDia = '';
     if(numeroDiaHoy == dia && mesActual == parseInt(mesNumStr)){
@@ -25,17 +33,6 @@ const DiaMesNavegador = ({dia,setModalVisible,setFechaActividad,mesNumStr,numero
     }else{
         backgroundColorDia = '#FB9CDE';
     }
-
-    useEffect(
-        ()=>{
-            if('02' == parseInt(mesNumStr) && dia == 28){
-                setOcultarMes(false);
-            }
-        },
-        [fechaString]
-    );
-
-
 
     const buscarActividades = ()=>{
         let fechaKey = fechaString.split('-')[0] + '-' + fechaString.split('-')[1] + '-' + diaToStr(dia);
@@ -85,6 +82,7 @@ const DiaMesNavegador = ({dia,setModalVisible,setFechaActividad,mesNumStr,numero
                     onPress={() => agregarActividad()}
                     background={TouchableNativeFeedback.Ripple('#FFFFFF', false, 40)}
                 >
+
                     <View
                         style={{
                             height:'98%',
@@ -99,7 +97,7 @@ const DiaMesNavegador = ({dia,setModalVisible,setFechaActividad,mesNumStr,numero
                         }}
                     >
 
-                        {mostrarCantidad(dia,actividadesMes,fechaString,diaToStr)}
+                        {mostrarCantidad(dia,actividadesMes,fechaString,diaToStr,setOcultarMes)}
 
                         <View
                            style={{
@@ -123,9 +121,9 @@ const DiaMesNavegador = ({dia,setModalVisible,setFechaActividad,mesNumStr,numero
     );
 }
 
-export default DiaMesNavegador;
+export default UltimoDia;
 
-const mostrarCantidad = (numDia,actividadesMes,fechaString,diaToStr) => {
+const mostrarCantidad = (numDia,actividadesMes,fechaString,diaToStr,setOcultarMes) => {
     //construir fechabusqueda
     
     let fechaKey = fechaString.split('-')[0] + '-' + fechaString.split('-')[1] + '-' + diaToStr(numDia);
@@ -136,7 +134,7 @@ const mostrarCantidad = (numDia,actividadesMes,fechaString,diaToStr) => {
             }
         }
     );
-    
+
     if(actividadesHoy.length > 0){
         let arrBD = actividadesHoy[0];
         let cantActividades = arrBD[1].length;

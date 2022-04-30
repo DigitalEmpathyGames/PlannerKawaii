@@ -2,9 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import useAngulos from "../hooks/useAngulos";
 
-const diametro = useAngulos().diametro;
-const numeroSize = useAngulos().numeroSize;
-
 
 const navegador = StyleSheet.create({
     tabSemana:{

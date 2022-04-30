@@ -1,12 +1,16 @@
-import React ,{useState} from "react";
-import {View,Text} from "react-native";
+import React ,{useContext} from "react";
+import {View,Text,NativeModules} from "react-native";
 import MesNavegador from "../componentes/MesNavegador";
 import NombreMesesNavegador from "../componentes/NombreMesesNavegador";
 import navegador from "../estilos/Navegador";
 import useFechas from "../hooks/useFechas";
-
+import PantallaCarga from "../componentes/PantallaCarga";
+import { ContextoCreate } from "../context/context";
 
 const PantallaMensual = ({setModalVisible,setFechaActividad}) => {
+
+    const { ObtenerFecha } = NativeModules;
+    const {ocultarMes} = useContext(ContextoCreate);
 
     const {
         mesMostrado,
@@ -15,8 +19,10 @@ const PantallaMensual = ({setModalVisible,setFechaActividad}) => {
         yearMostrado,
         setYearMostrado
     } = useFechas();
+    let date = ObtenerFecha.obtenerFechaActual();
+    const numeroDiaHoy = date.split(' ')[0].split('-')[2];
+    let mesActual = date.split(' ')[0].split('-')[1];
 
-    const numeroDiaHoy = new Date().getDate();
 
     return(
         <>
@@ -50,7 +56,12 @@ const PantallaMensual = ({setModalVisible,setFechaActividad}) => {
                             setFechaActividad = {setFechaActividad}
                             yearMostrado = {yearMostrado}
                             numeroDiaHoy = {numeroDiaHoy}
+                            mesActual = {mesActual}
+                            yearActual = {date.split(' ')[0].split('-')[0]}
                         />
+
+                            
+                        {ocultarMes && <PantallaCarga/>}
                     </View>
                     
                 </View>

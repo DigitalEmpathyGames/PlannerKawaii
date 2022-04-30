@@ -18,7 +18,7 @@ const App = () => {
           <StatusBarComp/>
             <AppContext>
               <PantallaInicio></PantallaInicio>
-              {/* <PantallaPruebas></PantallaPruebas> */}
+              {/* <PantallaPruebas/> */}
             </AppContext>
         </SafeAreaView>
     </>

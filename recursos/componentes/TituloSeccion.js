@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import { Text, TouchableNativeFeedback, View,TouchableOpacity } from "react-native";
 import estilos from "../estilos/Estilos";
-import { Mug } from 'react-kawaii/lib/native/';
 import { ContextoCreate } from "../context/context";
 import useFechas from "../hooks/useFechas";
 

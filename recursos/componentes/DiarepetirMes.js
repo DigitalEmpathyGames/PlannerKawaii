@@ -27,7 +27,6 @@ const DiarepetirMes = ({dia,setMes,mesState}) =>{
             arrDias[dia - 1] = false;
         }
         setMes(arrDias);
-        console.log(arrDias);
     }
 
     const agregarDia = () => {

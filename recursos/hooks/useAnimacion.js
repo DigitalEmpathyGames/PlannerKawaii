@@ -5,7 +5,6 @@ const useAnimacion = () => {
     
     const deslizarY = () => {
         let posicionItem = parseFloat(JSON.stringify(pan.y));
-        // console.log(posicionItem);
         if(posicionItem < -400.0){
             cerrarModalAgregarActividad();
         }

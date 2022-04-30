@@ -9,9 +9,9 @@ const NombreMesesNavegador = ({setMesMostrado,setYearMostrado}) => {
 
     const {
         setBuscarActxMes,
-        dataPormes,
         setfechaString,
-        setBuscarActxFecha
+        setBuscarActxFecha,
+        setOcultarMes
     } = useContext(ContextoCreate);
 
     return(
@@ -30,6 +30,7 @@ const NombreMesesNavegador = ({setMesMostrado,setYearMostrado}) => {
                             setBuscarActxMes = {setBuscarActxMes}
                             setfechaString = {setfechaString}
                             setBuscarActxFecha = {setBuscarActxFecha}
+                            setOcultarMes = {setOcultarMes}
                         />
                     }
                     horizontal = {true}
@@ -40,7 +41,7 @@ const NombreMesesNavegador = ({setMesMostrado,setYearMostrado}) => {
 };
 export default NombreMesesNavegador;
 
-const MesComponent = ({nombre,numeroMes,setMesMostrado,setYearMostrado,setBuscarActxMes,setfechaString,setBuscarActxFecha}) =>{
+const MesComponent = ({nombre,numeroMes,setMesMostrado,setYearMostrado,setBuscarActxMes,setfechaString,setBuscarActxFecha,setOcultarMes}) =>{
 
     const yearActividadSet = () => {
         let yearActividad;
@@ -52,10 +53,11 @@ const MesComponent = ({nombre,numeroMes,setMesMostrado,setYearMostrado,setBuscar
         return yearActividad;
     }
 
-    const cambiarMes = () => {
-        setMesMostrado(numeroMes);
-        setYearMostrado(yearActividadSet());
-        actualizarMesContext();
+    const cambiarMes = async () => {
+         setOcultarMes(true);
+         setMesMostrado(numeroMes);
+         setYearMostrado(yearActividadSet());
+         actualizarMesContext();
 
     }
 
@@ -70,7 +72,7 @@ const MesComponent = ({nombre,numeroMes,setMesMostrado,setYearMostrado,setBuscar
         return mesStr;
       }
 
-    const actualizarMesContext = () =>{
+    const actualizarMesContext = async () =>{
         let fechaString = yearActividadSet() + '-' + mesNumToStr(numeroMes) + '-01';
         setfechaString(fechaString);
         setBuscarActxMes(true);

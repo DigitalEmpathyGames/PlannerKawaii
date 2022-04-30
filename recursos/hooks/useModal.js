@@ -44,16 +44,9 @@ const useModal = () =>{
     const [mesState,setMesState] = useState([]);
     const [actividad,setActividad] = useState('');
     const [descripcion,setDescripcion] = useState('');
-    const [fechaActividad,setFechaActividad] = useState('');
-
-
+    const [fechaActividad,setFechaActividad] = useState(fechaAhora().split('T')[0]);
+    
     const agregarActividades = async (fechaActividad,horasActividad,actividad,descripcion,setActividadesHoy) => {
-
-        //no gacer nada si la alarma es menor
-
-        //busca actividades para la fecha seleccionada
-        let actividadesPrevias = await getItem(fechaActividad);
-        //agrega la nueva actividad al registro de la fecha elegida
 
         let actividadesAgregadas = horasActividad.map(
             (item) =>{
@@ -66,20 +59,27 @@ const useModal = () =>{
                 }
             }
         );
-
         //guarda en bd las actividades ahora todas juntas sobreescribiendo lo que estaba
         //solo para actividades validas (si existe)
         if(actividadesAgregadas.length > 0){
+
+
+            //realizar esto solo si hay hora que agregar
+            //no gacer nada si la alarma es menor
+
+            //busca actividades para la fecha seleccionada
+            let actividadesPrevias = await getItem(fechaActividad);
+            //agrega la nueva actividad al registro de la fecha elegida
+
+
+
+
             // obtenerdatos de la nueva alarma
             let alarma = actividadesAgregadas[0];
             //obtener fecha para alarma
             let fechaAlarma = fechaParaAlarma(alarma,fechaActividad);
             //guaradar alarma y obtener ID
             let nuevaFecha = fechaAhora();
-            console.log("alarma");
-            console.log(fechaAlarma);
-            console.log("fechaAhora");
-            console.log(nuevaFecha);
             if((new Date(fechaAlarma.toString()) > new Date(nuevaFecha.toString())) && (new Date(fechaAlarma.toString()) != new Date(nuevaFecha.toString()))){
                 let alarmaId = await guardarAlarma(fechaAlarma,alarma.actividad,alarma.descripcion).then(
                     (resultado) => {
@@ -92,10 +92,11 @@ const useModal = () =>{
             } else{
                 console.log("No guardo alarmas viejas");
             }
+            setBuscarActxFecha(true);
+            setBuscarActxMes(true);
         }
         setfechaString(fechaActividad);
-        setBuscarActxFecha(true);
-        setBuscarActxMes(true);
+
     }
 
 

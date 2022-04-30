@@ -1,15 +1,28 @@
 import React from "react";
-import Svg from "react-native-svg";
+import { SvgUri,SvgXml,SvgCss } from 'react-native-svg';
+import {View,StyleSheet } from 'react-native';
+import useSvgImages from "../bd/useSvgImages";
 
 
 
 const PantallaPruebas = () => {
+
+const {homero,kawaii,pulpo} = useSvgImages();
+
+
     return(
         <>
-        <Svg>
+            <View
+                style={[StyleSheet.absoluteFill,{height:100,width:300}]}
+            >
+                <SvgCss xml={pulpo} 
+                    height="100%" width="100%"
+                />
+            </View>
+            
 
 
-        </Svg>     
+
         </>
     );
 }

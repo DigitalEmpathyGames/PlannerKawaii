@@ -3,25 +3,26 @@ import {View,Text,StyleSheet} from "react-native";
 import modal from "../estilos/Modal";
 import DiaMesNavegador from "./DiaMesNavegador";
 import useFechas from "../hooks/useFechas";
+import UltimoDia from "./UltimoDia";
 
-const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,numeroDiaHoy}) => {
+const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,numeroDiaHoy,mesActual,yearActual}) => {
     const {semanaPorMes,mesNumToStr,diasMes,biciesto} = useFechas();
     let mesNumStr = mesNumToStr(numeroMes);
     let dias = semanaPorMes(mesNumStr,yearMostrado);
-    
-
     const diasMOstrar = () => {
         let diasextra = <></>;
         switch(diasMes[numeroMes]){
             case 28:
                 if(biciesto){
                     diasextra = <>
-                    <DiaMesNavegador
+                    <UltimoDia
                          dia={29}
                          setModalVisible = {setModalVisible}
                          setFechaActividad = {setFechaActividad}
                          mesNumStr = {mesNumStr}
                          numeroDiaHoy = {numeroDiaHoy}
+                         mesActual = {mesActual}
+                         yearActual = {yearActual}
                     />
                     <View style={{flex:6}} />
                 </>
@@ -38,13 +39,17 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                          setFechaActividad = {setFechaActividad}
                          mesNumStr = {mesNumStr}
                          numeroDiaHoy = {numeroDiaHoy}
+                         mesActual = {mesActual}
+                         yearActual = {yearActual}
                     />
-                    <DiaMesNavegador
+                    <UltimoDia
                         dia={30}
                         setModalVisible = {setModalVisible}
                         setFechaActividad = {setFechaActividad}
                         mesNumStr = {mesNumStr}
                         numeroDiaHoy = {numeroDiaHoy}
+                        mesActual = {mesActual}
+                        yearActual = {yearActual}
                     />
                     <View style={{flex:5}} />
                 </>
@@ -59,6 +64,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                          setFechaActividad = {setFechaActividad}
                          mesNumStr = {mesNumStr}
                          numeroDiaHoy = {numeroDiaHoy}
+                         mesActual = {mesActual}
+                         yearActual = {yearActual}
                     />
                     <DiaMesNavegador
                         dia={30}
@@ -66,13 +73,17 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                         setFechaActividad = {setFechaActividad}
                         mesNumStr = {mesNumStr}
                         numeroDiaHoy = {numeroDiaHoy}
+                        mesActual = {mesActual}
+                        yearActual = {yearActual}
                     />
-                    <DiaMesNavegador
+                    <UltimoDia
                         dia={31}
                         setModalVisible = {setModalVisible}
                         setFechaActividad = {setFechaActividad}
                         mesNumStr = {mesNumStr}
                         numeroDiaHoy = {numeroDiaHoy}
+                        mesActual = {mesActual}
+                        yearActual = {yearActual}
                     />
                     <View style={{flex:4}} />
                 </>
@@ -111,6 +122,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                     
 
@@ -120,6 +133,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={3}
@@ -127,6 +142,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={4}
@@ -134,6 +151,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={5}
@@ -141,6 +160,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={6}
@@ -148,6 +169,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={7}
@@ -155,6 +178,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
             </View>
             <View
@@ -166,6 +191,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
 
                 <DiaMesNavegador
@@ -174,6 +201,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setModalVisible = {setModalVisible}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={10}
@@ -181,6 +210,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={11}
@@ -188,6 +219,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={12}
@@ -195,6 +228,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={13}
@@ -202,6 +237,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={14}
@@ -209,6 +246,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
             </View>
             <View
@@ -220,6 +259,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
 
                 <DiaMesNavegador
@@ -228,6 +269,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={17}
@@ -235,6 +278,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={18}
@@ -242,6 +287,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={19}
@@ -249,6 +296,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={20}
@@ -256,6 +305,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={21}
@@ -263,6 +314,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
             </View>
             <View
@@ -274,6 +327,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
 
                 <DiaMesNavegador
@@ -282,6 +337,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={24}
@@ -289,6 +346,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={25}
@@ -296,6 +355,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={26}
@@ -303,6 +364,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={27}
@@ -310,6 +373,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
                 <DiaMesNavegador
                     dia={28}
@@ -317,6 +382,8 @@ const MesNavegador = ({numeroMes,setModalVisible,setFechaActividad,yearMostrado,
                     setFechaActividad = {setFechaActividad}
                     mesNumStr = {mesNumStr}
                     numeroDiaHoy = {numeroDiaHoy}
+                    mesActual = {mesActual}
+                    yearActual = {yearActual}
                 />
             </View>
             <View

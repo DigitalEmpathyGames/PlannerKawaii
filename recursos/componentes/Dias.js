@@ -1,7 +1,5 @@
-import React, {useRef,useState}from "react";
-import { Text, TextInput, TouchableNativeFeedback, View} from "react-native";
+import React from "react";
 
-import modal from "../estilos/Modal";
 import BottonDia from "./BottonDia";
 const Dias = ({setDias,dias}) =>{
     
